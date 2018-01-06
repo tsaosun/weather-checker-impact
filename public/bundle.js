@@ -971,16 +971,20 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _ZipForm = __webpack_require__(28);
+
+var _ZipForm2 = _interopRequireDefault(_ZipForm);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
   return _react2.default.createElement(
-    "div",
-    { className: "container" },
+    'div',
+    { className: 'container' },
     _react2.default.createElement(
-      "h1",
+      'h1',
       null,
-      "What's the weather?"
+      'What\'s the weather?'
     )
   );
 };
@@ -18294,6 +18298,13 @@ function camelize(string) {
 }
 
 module.exports = camelize;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+"use strict";
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/karen/Fullstack/impact/weatherCheckerStart/client/ZipForm.jsx'");
 
 /***/ })
 /******/ ]);
