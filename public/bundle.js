@@ -977,6 +977,10 @@ var _ZipForm = __webpack_require__(28);
 
 var _ZipForm2 = _interopRequireDefault(_ZipForm);
 
+var _WeatherData = __webpack_require__(29);
+
+var _WeatherData2 = _interopRequireDefault(_WeatherData);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1000,6 +1004,7 @@ var App = function (_React$Component) {
       apiData: null
       //toggleTaco's this should always be bound to this instance
     };_this.updateZipcode = _this.updateZipcode.bind(_this);
+    _this.renderAPI = _this.renderAPI.bind(_this);
     return _this;
   }
 
@@ -1025,8 +1030,20 @@ var App = function (_React$Component) {
     value: function updataData(data) {
       console.log(data);
       this.setState({
-        dataUpdate: data
+        apiData: data
       });
+    }
+  }, {
+    key: 'renderAPI',
+    value: function renderAPI() {
+      console.log('in renderAPI');
+      if (this.apiData.response.error) {
+        console.log("error from api");
+        return "Data not found";
+      } else {
+        console.log('no error from api');
+        return this.apiData.response;
+      }
     }
   }, {
     key: 'render',
@@ -1039,7 +1056,8 @@ var App = function (_React$Component) {
           null,
           'Whats the weather?'
         ),
-        _react2.default.createElement(_ZipForm2.default, { zip: this.updateZipcode })
+        _react2.default.createElement(_ZipForm2.default, { zip: this.updateZipcode }),
+        _react2.default.createElement(_WeatherData2.default, { weather: this.renderAPI })
       );
     }
   }]);
@@ -18382,7 +18400,8 @@ var ZipForm = function ZipForm(props) {
     _react2.default.createElement(
       "button",
       { onClick: function onClick(event) {
-          event.preventDefault();props.zip(document.getElementById('zipID').value);
+          event.preventDefault();
+          props.zip(document.getElementById('zipID').value);
         } },
       "Go"
     )
@@ -18390,6 +18409,49 @@ var ZipForm = function ZipForm(props) {
 };
 
 exports.default = ZipForm;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var WeatherData = function WeatherData(props) {
+  console.log('in weatherdata');
+  return _react2.default.createElement(
+    'div',
+    { id: 'resultDiv' },
+    _react2.default.createElement(
+      'p',
+      null,
+      function () {
+        return props.weather();
+      }
+    )
+  );
+};
+
+/*function renderDataFunction(props){
+  if(props.weather.apiData.response.error){
+    return "Data not found"
+  }
+  else{
+    return props.weather.apiData.response
+  }
+}*/
+
+exports.default = WeatherData;
 
 /***/ })
 /******/ ]);

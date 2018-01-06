@@ -1,5 +1,6 @@
 import React from 'react';
 import ZipForm from './ZipForm.jsx';
+import WeatherData from './WeatherData.jsx';
 
 class App extends React.Component {
 
@@ -13,6 +14,7 @@ class App extends React.Component {
     }
     //toggleTaco's this should always be bound to this instance
     this.updateZipcode = this.updateZipcode.bind(this)
+    this.renderAPI = this.renderAPI.bind(this)
   }
 
   updateZipcode(zipcode){
@@ -30,15 +32,28 @@ class App extends React.Component {
   updataData(data){
     console.log(data)
     this.setState({
-      dataUpdate: data
+      apiData: data
     })
   }
+
+  renderAPI(){
+    console.log('in renderAPI')
+    if(this.apiData.response.error){
+      console.log("error from api")
+      return "Data not found"
+    }
+    else{
+      console.log('no error from api')
+      return this.apiData.response
+  }
+}
 
   render(){
     return (
       <div className="container">
         <h1>Whats the weather?</h1>
         <ZipForm zip={this.updateZipcode}/>
+        <WeatherData weather={this.renderAPI}/>
       </div>
     )
   }
