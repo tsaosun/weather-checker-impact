@@ -6,7 +6,7 @@ layout: default
 
 It's downhill from here! (At least until the bonus sections ;) )
 
-Create a new component that will render out our current weather conditions for our zipcode.  I don't have any JSX or styles for you this time--be creative!
+Create a new component that will render out our current weather conditions for our zipcode.  I don't have any JSX or styles for you this time. Be creative!
 
 This component should _only render when there is a zipcode and weather data on the state_, otherwise you'll get an error!
 

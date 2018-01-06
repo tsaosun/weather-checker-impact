@@ -12,3 +12,5 @@ In this step, we want to:
 3. To check that your state is correct you can a) render out some data in <App />, b) console.log parts of your state in your render method, or c) download and install the [React DevTools](https://github.com/facebook/react-devtools) extension (Chrome or Firefox) to inspect your component's state.
 
 When you are sure that you are updating your state appropriately, [move on](render-weather) to rendering your data!
+
+_Mini bonus: If you'd like your application to start with a zipcode already on the state, you can use the lifecycle hook `componentDidMount` to fetch any initial data with a default zipcode._

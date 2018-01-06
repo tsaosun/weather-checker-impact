@@ -7,10 +7,10 @@ For each location, add a button with an 'X' or 'Delete' on it. When that is clic
 
 ### Congrats! You now know most of React!
 
-React is a small library as opposed to a large framework like Angular. It does one thing and one thing well--controlling your views. For any extra features, we need to install extra libaries. Some very popular ones I recommend you look into:
+React is a small library as opposed to a large framework like Angular. It does one thing and one thing well, controlling your views. For any extra features, we need to install extra libaries. Some very popular ones I recommend you look into:
 
-react-router-dom
-redux
-react-redux
-axios
-...and so many more!
+- react-router-dom
+- redux
+- react-redux
+- axios
+- ...and so many more!
