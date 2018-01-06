@@ -4,7 +4,7 @@ const ZipForm = function(props) {
   return (
     <div id="zip-form">
       <input id = "zipID" placeholder='Enter your Zip Code' />
-      <button onClick={() => props.zip(document.getElementById('zipID').value)}>Go</button>
+      <button onClick={(event) => {event.preventDefault(); props.zip(document.getElementById('zipID').value);}}>Go</button>
     </div>
   )
 }

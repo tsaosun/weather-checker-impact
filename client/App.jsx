@@ -5,9 +5,11 @@ class App extends React.Component {
 
   constructor(){
     super()
+    this.key = 'b4c6910fa2a7ae9c';
     this.state = {
       submitted: false,
-      zipcode: 0
+      zipcode: 0,
+      apiData: null
     }
     //toggleTaco's this should always be bound to this instance
     this.updateZipcode = this.updateZipcode.bind(this)
@@ -18,8 +20,18 @@ class App extends React.Component {
     this.setState({
       submitted: !this.state.submitted,
       zipcode: zipcode
+
     })
-    console.log(this.state.zipcode)
+    fetch('http://api.wunderground.com/api/'+ this.key + '/conditions/q/'+ zipcode +'.json').
+    then(r => r.json()).
+    then(r => this.updataData(r))
+  }
+
+  updataData(data){
+    console.log(data)
+    this.setState({
+      dataUpdate: data
+    })
   }
 
   render(){

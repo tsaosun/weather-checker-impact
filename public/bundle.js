@@ -993,9 +993,11 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
+    _this.key = 'b4c6910fa2a7ae9c';
     _this.state = {
       submitted: false,
-      zipcode: 0
+      zipcode: 0,
+      apiData: null
       //toggleTaco's this should always be bound to this instance
     };_this.updateZipcode = _this.updateZipcode.bind(_this);
     return _this;
@@ -1004,12 +1006,27 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'updateZipcode',
     value: function updateZipcode(zipcode) {
+      var _this2 = this;
+
       console.log(zipcode);
       this.setState({
         submitted: !this.state.submitted,
         zipcode: zipcode
+
       });
-      console.log(this.state.zipcode);
+      fetch('http://api.wunderground.com/api/' + this.key + '/conditions/q/' + zipcode + '.json').then(function (r) {
+        return r.json();
+      }).then(function (r) {
+        return _this2.updataData(r);
+      });
+    }
+  }, {
+    key: 'updataData',
+    value: function updataData(data) {
+      console.log(data);
+      this.setState({
+        dataUpdate: data
+      });
     }
   }, {
     key: 'render',
@@ -18364,8 +18381,8 @@ var ZipForm = function ZipForm(props) {
     _react2.default.createElement("input", { id: "zipID", placeholder: "Enter your Zip Code" }),
     _react2.default.createElement(
       "button",
-      { onClick: function onClick() {
-          return props.zip(document.getElementById('zipID').value);
+      { onClick: function onClick(event) {
+          event.preventDefault();props.zip(document.getElementById('zipID').value);
         } },
       "Go"
     )
