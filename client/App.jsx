@@ -2,7 +2,9 @@ import React from 'react';
 
 const App = function() {
   return (
-    <h1>Hello World!</h1>
+    <div className="container">
+      <h1>What's the weather?</h1>
+    </div>
   )
 }
 

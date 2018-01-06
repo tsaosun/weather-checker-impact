@@ -1,3 +1,14 @@
 body {
-  background-color: blue;
+  background-color: lightblue;
+  font-family: 'Berkshire Swash', cursive;
+}
+
+.container {
+  width: 70%;
+  margin: 10% auto;
+  color:dimgray
+}
+
+.container h1 {
+  text-align: center;
 }

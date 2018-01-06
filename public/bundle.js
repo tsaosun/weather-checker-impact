@@ -954,6 +954,8 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
+
 /***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -973,9 +975,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var App = function App() {
   return _react2.default.createElement(
-    'h1',
-    null,
-    'Hello World!'
+    "div",
+    { className: "container" },
+    _react2.default.createElement(
+      "h1",
+      null,
+      "What's the weather?"
+    )
   );
 };
 
